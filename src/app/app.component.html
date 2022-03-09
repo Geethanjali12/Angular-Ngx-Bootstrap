@@ -1,6 +1,127 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="nav-link">Ngx-Bootstrap</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+  </nav>
+
+<h4>Accordion</h4>
+
+  <accordion [isAnimated]="true">
+    <accordion-group heading="Static Header">
+      This content is straight in the template.
+    </accordion-group>
+  </accordion>
+
+  <h4>Alert</h4>
+
+  <alert type="success">
+    <strong>Well done!</strong> You successfully read this important alert message.
+  </alert>
+
+  <h4>Button</h4>
+
+  <pre class="card card-block card-header">{{checkModel | json}}</pre>
+ 
+  <div class="btn-group">
+    <label class="btn btn-primary" [(ngModel)]="checkModel.left"
+           btnCheckbox tabindex="0" role="button">Left</label>
+    <label class="btn btn-primary" [(ngModel)]="checkModel.middle"
+           btnCheckbox tabindex="0" role="button">Middle</label>
+    <label class="btn btn-primary" [(ngModel)]="checkModel.right"
+           btnCheckbox tabindex="0" role="button">Right</label>
+  </div>
+
+  <h4>Carousel</h4>
+
+  <carousel [isAnimated]="true">
+    <slide>
+      <img src="assets/images/mars.jpg" alt="first slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>First slide label</h3>
+        <p>This shows the image of Mars</p>
+      </div>
+    </slide>
+    <slide>
+      <img src="assets/images/rainfall.jpg" alt="second slide" style="display: block; width: 100%;">
+    </slide>
+    <slide>
+      <img src="assets/images/women.jpg" alt="third slide" style="display: block; width: 100%;">
+    </slide>
+  </carousel>
+
+  <h4>Collapse</h4>
+
+  <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+  [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Toggle collapse
+</button>
+<hr>
+<div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+<div class="well well-lg card card-block card-header">Some content</div>
+</div>
+
+<h4>Datepicker </h4>
+
+<div class="row" >
+    <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+      <input type="text"
+             placeholder="Datepicker"
+             class="form-control"
+             bsDatepicker
+             [bsConfig]="{adaptivePosition:true}">
+    </div>
+    <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+      <input type="text"
+             placeholder="Daterangepicker"
+             class="form-control"
+             bsDaterangepicker
+             [bsConfig]="{adaptivePosition:true}">
+    </div>
+  </div>
+
+  <h4>Dropdown </h4>
+
+  <div class="btn-group" dropdown>
+    <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+            aria-controls="dropdown-basic">
+      Button dropdown <span class="caret"></span>
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-basic">
+      <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+      <li class="divider dropdown-divider"></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+      </li>
+    </ul>
+  </div>
+
+  <h4>Model</h4>
+
+  <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+</ng-template>
+
+<h4>Pagination</h4>
+
+<pagination [totalItems]="30"></pagination>
+
+<h4>Popover</h4>
 
 <button type="button" class="btn btn-primary"
-tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-Simple demo
-</button>
+        popover="PopOver for Angular Ngx-Bootstrap">
+PopOver</button>
+
+<router-outlet></router-outlet>
+
+
